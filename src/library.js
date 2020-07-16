@@ -9,14 +9,15 @@ let elevation = {
     // onward, for..of works only with that object,
     // asking it for next values using next()
     return {
+      start :  this.startValue,
       current: this.startValue,
       last: this.endValue,
 
       next() {
         if (this.current < this.last) {
-          return { done: false, value: this.current = this.current+ (20.-0.)/60. };
+          return { done: false, value: this.current = this.current+ (this.last - this.start)/60. };
         } else {
-            return { done: false, value: this.current = 0. };
+            return { done: false, value: this.current = this.start };
         }
       }
     };
@@ -27,11 +28,13 @@ let azimuth = {
   startValue: -45.,
   endValue: 45.,
 
+
   [Symbol.iterator]() {
     // ...it returns the iterator object:
     // onward, for..of works only with that object,
     // asking it for next values using next()
     return {
+      start :  this.startValue,
       current: this.startValue,
       last: this.endValue,
 
@@ -39,9 +42,9 @@ let azimuth = {
       next() { // (2)
         // it should return the value as an object {done:.., value :...}
         if (this.current < this.last) {
-          return { done: false, value: this.current = this.current+ (45. - (-45.))/60. };
+          return { done: false, value: this.current = this.current+ (this.last - this.start)/60. };
         } else {
-          return { done: false, value: this.current = -45. };
+          return { done: false, value: this.current = this.start  };
         }
       }
     };
@@ -57,14 +60,15 @@ let range = {
     // onward, for..of works only with that object,
     // asking it for next values using next()
     return {
+      start :  this.startValue,
       current: this.startValue,
       last: this.endValue,
 
       next() {
         if (this.current < this.last) {
-          return { done: false, value: this.current = this.current+ (200000. - 3.)/60. };
+          return { done: false, value: this.current = this.current+ (this.last - this.start)/60. };
         } else {
-          return { done: false, value: this.current = 3. };
+          return { done: false, value: this.current = this.start };
         }
       }
     };
