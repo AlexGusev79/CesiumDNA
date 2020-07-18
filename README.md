@@ -1,5 +1,5 @@
 
-**cesium-sensors**: A Cesium plugin for visualizing sensor volumes.
+**cesium-sensors**: Model the directivity of the antenna.
 
 **Cesium version**: Tested against [1.6](http://cesiumjs.org/downloads.html). Post a message to the [Cesium forum](http://cesiumjs.org/forum.html) if you have compatibility issues.
 
