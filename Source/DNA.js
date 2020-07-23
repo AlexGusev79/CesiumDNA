@@ -1,6 +1,7 @@
 
 import { elevation, azimuth, range } from './iters.js';
 
+import { CustomSensorVolume } from './sensor.js';
 
 var DNA = DNA || {};
 
@@ -49,7 +50,8 @@ function getModelMatrix(_elevation, _azimuth) {
 
 function addSensor(_elevation, _azimuth, _radius) {
 	viewer.scene.primitives.removeAll();
-	var customSensor = new CesiumSensors.CustomSensorVolume();
+	var customSensor = new CustomSensorVolume();
+
 	var directions = [];
 
 	for (var i = 0; i < numVertex; ++i) {
